@@ -1,29 +1,15 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Alert, Button } from 'react-native';
+import { Image, StyleSheet, Text, View, Alert, Button } from 'react-native';
 import { Constants, BarCodeScanner, Permissions } from "expo";
+import Welcome from './Welcome.js'
 
-export default class App extends Component {
-
-  toSecond() {
-
-  }  
+class App extends Component {
 
   render() {
  
     return (
       <View style={styles.container}>
-        <View style={styles.container_top}>
-          <Text style={styles.text}>Sum Code-Bar</Text>
-          <Text style={styles.welcome}>Welcome</Text>
-        </View>
-        <View style={styles.container_bottom}>
-          <Button 
-            onPress={this.toSecond}
-            title="Next"
-            style={styles.button}
-            color = 'red'
-          />
-        </View>
+        <Welcome />
       </View>
     );
   }
@@ -37,25 +23,8 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center"
-  },
-  container_top: {
-    height: 300,
-    minWidth: 400,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 20
-  },
-  container_bottom: {
-    height: 100,
-    minWidth: 400,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  text: {
-    fontSize: 60
-  },
-  welcome: {
-    color: "red",
-    fontSize: 40
   }
 });
+
+
+export default App;
