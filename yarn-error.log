@@ -1,0 +1,35 @@
+Arguments: 
+  /home/rafael/.nvm/versions/node/v8.4.0/bin/node /home/rafael/.yarn/bin/yarn.js add react-native-paper
+
+PATH: 
+  /home/rafael/.yarn/bin:/home/rafael/.nvm/versions/node/v8.4.0/bin:/home/rafael/.local/share/umake/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/rafael/Android/Sdk/tools:/home/rafael/Android/Sdk/platform-tools
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  8.4.0
+
+Platform: 
+  linux x64
+
+npm manifest: 
+  {
+    "main": "node_modules/expo/AppEntry.js",
+    "private": true,
+    "dependencies": {
+      "expo": "^26.0.0",
+      "react": "16.3.0-alpha.1",
+      "react-native": "https://github.com/expo/react-native/archive/sdk-26.0.0.tar.gz"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: https://github.com/expo/react-native/archive/sdk-26.0.0.tar.gz: unexpected end of file
+      at Gunzip.zlibOnError (zlib.js:152:15)
