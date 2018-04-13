@@ -2,13 +2,9 @@ import React, { Component } from 'react';
 import { Image, StyleSheet, Text, View, Alert, Button } from 'react-native';
 import { Constants, BarCodeScanner, Permissions } from "expo";
 import logo from './assets/logo.png'
+import { Actions } from "react-native-router-flux";
 
 class Welcome extends Component {
-
-  toSecond() {
-
-  }
-
   render() {
 
     return (
@@ -20,7 +16,7 @@ class Welcome extends Component {
         </View>
         <View style={styles.container_bottom}>
           <Button
-            onPress={this.toSecond}
+            onPress={() => Actions.menu()}
             title="Proximo"
             style={styles.button}
             color='red'
