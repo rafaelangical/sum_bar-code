@@ -1,10 +1,32 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 
-export default class List extends Component{
+class List extends Component{
   render(){
-    return{
-      
-    }
+    return(
+      <View style={styles.container}>
+        <View style={styles.containerTop}>
+          <Text>Lista de Produtos</Text>
+        </View>
+      </View>
+    );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  containerTop: {
+    minWidth: 400,
+    minHeight: 100,
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+});
+
+export default List;
