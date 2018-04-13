@@ -16,6 +16,9 @@ class Menu extends Component{
           <Button
             title="Listar"
           />
+          <Button
+            title="Voltar"
+          />
         </View>
       </View>
     );
@@ -42,7 +45,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
     flexDirection: "column",
     width: 200,
-    minHeight: 80,
+    minHeight: 110,
     justifyContent: "space-between",
   }, 
   button: {
