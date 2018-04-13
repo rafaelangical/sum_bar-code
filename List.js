@@ -17,15 +17,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     display: "flex",
-    flexDirection: "column",
+    //flexDirection: "column",
     alignItems: "center",
     justifyContent: "center"
   },
   containerTop: {
     minWidth: 400,
     minHeight: 100,
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignItems: 'center'
   }
 });
 
