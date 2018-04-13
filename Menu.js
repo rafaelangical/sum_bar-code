@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
+import { Actions } from "react-native-router-flux";
 
 class Menu extends Component{
   
@@ -14,9 +15,11 @@ class Menu extends Component{
             title="Novo"
           />
           <Button
+            onPress={() => Actions.list()}
             title="Listar"
           />
           <Button
+            onPress={() => Actions.welcome()}
             title="Voltar"
           />
         </View>
