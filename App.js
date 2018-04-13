@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Image, StyleSheet, Text, View, Alert, Button } from 'react-native';
 import { Constants, BarCodeScanner, Permissions } from "expo";
-import Welcome from './Welcome.js'
+import Welcome from './Welcome'
+import Menu from './Menu'
+import List from './List'
 
 class App extends Component {
 
