@@ -4,6 +4,7 @@ import { Constants, BarCodeScanner, Permissions } from "expo";
 import Welcome from './Welcome';
 import Menu from './Menu';
 import List from './List';
+import Scanner from './Scanner'
 import { Router, Scene } from 'react-native-router-flux';
 
 
@@ -28,6 +29,10 @@ class App extends Component {
             key="list"
             component={List}
             title="List"
+          />
+          <Scene
+            key="scanner"
+            component={Scanner}
           />
         </Scene>
       </Router>
