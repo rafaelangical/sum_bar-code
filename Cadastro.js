@@ -17,6 +17,10 @@ export default class App extends Component {
     this.setState({
       hasCameraPermission: status === "granted"
     });
+
+    // return(
+      
+    // );
   };
 
   _handleBarCodeRead = data => {
@@ -25,17 +29,28 @@ export default class App extends Component {
 
   render() {
     return (
+      // <View style={styles.container}>
+      //   {this.state.hasCameraPermission === null ? (
+      //     <Text>Requesting for camera permission</Text>
+      //   ) : this.state.hasCameraPermission === false ? (
+      //     <Text>Camera permission is not granted</Text>
+      //   ) : (
+      //     <BarCodeScanner
+      //       onBarCodeRead={this._handleBarCodeRead}
+      //       style={{ height: 200, width: 200 }}
+      //     />
+      //   )}
+      // </View>
       <View style={styles.container}>
-        {this.state.hasCameraPermission === null ? (
-          <Text>Requesting for camera permission</Text>
-        ) : this.state.hasCameraPermission === false ? (
-          <Text>Camera permission is not granted</Text>
-        ) : (
-          <BarCodeScanner
-            onBarCodeRead={this._handleBarCodeRead}
-            style={{ height: 200, width: 200 }}
+        <View style={styles.containerTop}>
+          <Text>Menu de Cadastro</Text>
+        </View>
+        <View style={styles.containerMiddle}></View>
+        <View style={styles.containerBottom}>
+          <Button 
+            title="Enviar"
           />
-        )}
+        </View>
       </View>
     );
   }
@@ -48,5 +63,26 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingTop: Constants.statusBarHeight,
     backgroundColor: "#ecf0f1"
-  }
+  },
+  containerTop:{
+    minWidth: 300,
+    minHeight: 100,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor:'red'
+  },
+  containerMiddle:{
+    minWidth: 300,
+    minHeight: 400,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'blue'
+  },
+  containerBottom:{
+    minWidth: 300,
+    minHeight: 100,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'green'
+  },
 });
