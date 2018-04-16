@@ -1,11 +1,19 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, Alert } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  Alert,
+  Button,
+  TextInput
+} from "react-native";
 import { Constants, BarCodeScanner, Permissions } from "expo";
 
 export default class App extends Component {
   
   state = {
-    hasCameraPermission: null
+    hasCameraPermission: null,
+    text: 'Digite algo'
   };
 
   componentDidMount() {
@@ -27,6 +35,10 @@ export default class App extends Component {
     Alert.alert("Scan successful!", JSON.stringify(data));
   };
 
+  onpress(e) {
+
+  }
+
   render() {
     return (
       // <View style={styles.container}>
@@ -43,12 +55,31 @@ export default class App extends Component {
       // </View>
       <View style={styles.container}>
         <View style={styles.containerTop}>
-          <Text>Menu de Cadastro</Text>
+          <Text style={{fontSize: 35, color: 'red'}}>Menu de Cadastro</Text>
         </View>
-        <View style={styles.containerMiddle}></View>
+        <View style={styles.containerMiddle}>
+          <Text style={{fontSize: 20}}>Nome</Text>
+          <TextInput
+            style={{ height: 50, borderColor: 'gray', borderWidth: 1, width:300, marginBottom: 50, marginTop: 5 }}
+            onChangeText={(text) => this.setState({ text })}
+            value={this.state.text}
+          />
+          <Text style={{fontSize: 20}}>Descriçao</Text>
+          <TextInput
+            style={{height: 50, borderColor: 'black', borderWidth: 1, width: 300, marginBottom: 50}}
+            value='descrição'
+          />
+
+          <Button
+            title='Escanear barcode'
+
+          />
+        </View>
         <View style={styles.containerBottom}>
           <Button 
+            onPress={() => onpress(e)}
             title="Enviar"
+            style={{fontSize: 30, width: 200}}
           />
         </View>
       </View>
@@ -62,27 +93,23 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: "#ecf0f1"
+    backgroundColor: "#345"
   },
   containerTop:{
-    minWidth: 300,
-    minHeight: 100,
+    width: 400,
+    minHeight: 80,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor:'red'
   },
   containerMiddle:{
-    minWidth: 300,
+    width: 400,
     minHeight: 400,
     alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'blue'
   },
   containerBottom:{
-    minWidth: 300,
-    minHeight: 100,
+    width: 400,
+    minHeight: 80,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'green'
   },
 });

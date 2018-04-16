@@ -12,7 +12,7 @@ class Menu extends Component{
         </View>
         <View style={styles.containerBottom}>
           <Button 
-            onPress={() => Actions.scanner()}
+            onPress={() => Actions.cadastro()}
             title="Novo"
           />
           <Button
