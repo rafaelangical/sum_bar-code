@@ -11,27 +11,32 @@ import { Constants, BarCodeScanner, Permissions } from "expo";
 
 export default class App extends Component {
   
-  state = {
-    hasCameraPermission: null,
-    text: 'Digite algo'
-  };
+  constructor(){
+    super()
+    this.state = {
+      hasCameraPermission: null,
+      text: 'Digite algo',
+      datas: [],
+      button: true
+    };
 
-  componentDidMount() {
-    this._requestCameraPermission();
+    this.requestCameraPermission = this.requestCameraPermission.bind(this);
   }
 
-  _requestCameraPermission = async () => {
+  requestCameraPermission = async () => {
+    const { Camera, Permissions } = Expo;
     const { status } = await Permissions.askAsync(Permissions.CAMERA);
-    this.setState({
-      hasCameraPermission: status === "granted"
-    });
-
-    // return(
-      
-    // );
+    if(status === 'granted'){
+      return this.setState({
+        hasCameraPermission: 'granted',
+        button: false
+      });
+    }
   };
 
   _handleBarCodeRead = data => {
+    this.setState({...this.state, datas: JSON.stringify(data)});
+    console.log(this.state.datas)
     Alert.alert("Scan successful!", JSON.stringify(data));
   };
 
@@ -60,20 +65,32 @@ export default class App extends Component {
         <View style={styles.containerMiddle}>
           <Text style={{fontSize: 20}}>Nome</Text>
           <TextInput
-            style={{ height: 50, borderColor: 'gray', borderWidth: 1, width:300, marginBottom: 50, marginTop: 5 }}
+            style={{ height: 50, width:300, marginBottom: 50, marginTop: 5 }}
             onChangeText={(text) => this.setState({ text })}
-            value={this.state.text}
+            placeholder="Nome do produto"
           />
           <Text style={{fontSize: 20}}>Descriçao</Text>
           <TextInput
-            style={{height: 50, borderColor: 'black', borderWidth: 1, width: 300, marginBottom: 50}}
-            value='descrição'
+            style={{height: 50, width: 300, marginBottom: 50}}
+            placeholder="Descrição do produto"
           />
-
-          <Button
-            title='Escanear barcode'
-
-          />
+          
+          {this.state.hasCameraPermission === 'granted' ? (
+            <BarCodeScanner
+              onBarCodeRead={this._handleBarCodeRead}
+              style={{ height: 160, width: 300 }}
+            />
+          ):(
+            <Text>Clique no botão para abrir o scanner de barcode</Text>
+          )}
+          
+          { this.state.button ?(
+            <Button
+              onPress={() => this.requestCameraPermission()}
+              title='Abrir câmera'
+          />):(
+            <Text></Text>
+          )}
         </View>
         <View style={styles.containerBottom}>
           <Button 
