@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Image, StyleSheet, Text, View, Alert, Button } from 'react-native';
 import { Constants, BarCodeScanner, Permissions } from "expo";
-import Welcome from '.components/Welcome';
+import Welcome from './components/Welcome';
 import Menu from './components/Menu';
 import List from './components/List';
-import Cadastro from './components/Cadastro'
+import Cadastro from './components/Cadastro';
 import { Router, Scene } from 'react-native-router-flux';
 
 
